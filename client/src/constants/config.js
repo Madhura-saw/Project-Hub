@@ -37,9 +37,11 @@ export const SERVICE_URLS={
     getAllComments: {url:'comments', method:'GET', query:true},
     deleteComment: {url:'comment/delete', method:'DELETE', query:true},
     createEvent:{url:'/createEvent', method:'POST'},
-    getAllEvents:{url:'/events', method:'GET',params:true},
+    getAllEvents:{url:'/events', method:'GET',params:true}, 
     getEventById: {url:'eventdetails', method:'GET', query:true},
     // register: {url:'/eventdetail/new', method:'POST'},
-    register: {url:'/register/new', method:'POST'},
+    register: {url:'/register/new', method:'POST'}, 
     getAllReg: {url:'eventdetail', method:'GET', query:true},
+    getProfile: {url:'/profile', method:'GET', params:true},
+    getAllProjects: {url:'/projects', method:'GET', params:true},
 }  

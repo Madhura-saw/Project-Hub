@@ -1,5 +1,7 @@
 import { AppBar, Toolbar,  styled } from "@mui/material";
 import {Link} from 'react-router-dom';
+import { useContext } from "react";
+import { DataContext } from "../../context/DataProvider";
 const Component = styled(AppBar)`
 background:#E8E8E8;
 color:#;
@@ -14,17 +16,28 @@ justify-content: right;
     text-decoration:none
 }
 `
+
 const Header = () =>
 {
+    const {account} = useContext(DataContext);
     return (
         <Component>
             <Container>
+// <<<<<<< Dipti
+//                 <Link to='/homepage'>HOME</Link>
+//                 <Link to='/'>PROJECTS</Link>
+//                 <Link to='/events'>EVENTS</Link>
+//                 <Link to='/myevents'>MY EVENTS</Link>
+//                 <Link to='/donate'>DONATE</Link>
+// =======
                 {/* <Link to='/homepage'>HOME</Link> */}
                 <Link to='/'>PROJECTS</Link>
                 {/* <Link to='/events'>EVENTS</Link> */}
                 <Link to='/myevents'>MY PROJECTS</Link>
                 {/* <Link to='/donate'>DONATE</Link> */}
+// >>>>>>> main
                 <Link to='/contact'>ABOUT US </Link>
+                {/* <Link to='/profile' >My Profile </Link> */}
                 <Link to='/login'>LOGOUT</Link>
                 
             </Container>

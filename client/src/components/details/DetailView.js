@@ -15,11 +15,19 @@ import Carousel from "react-material-ui-carousel";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { API } from "../../service/api.js";
+import { blueGrey, deepPurple } from "@mui/material/colors";
+import Avatar from '@mui/material/Avatar';
+import PopupForm from "./PopUp.js";
 //import { Container } from '@mui/system';
+// import Comments from './Comments/Comments.js';
+// import {Edit, Delete} from '@mui/icons-material';
+// import { DataContext } from '../../context/DataProvider.js';
+// //import DisplayComment from './Comments/DisplayComment.js';
+
 import Comments from "./Comments/Comments.js";
 import { Edit, Delete } from "@mui/icons-material";
 import { DataContext } from "../../context/DataProvider.js";
-import PopupForm from "./PopUp.js";
+
 //import DisplayComment from './Comments/DisplayComment.js';
 
 const Cont = styled(Box)(({ theme }) => ({
@@ -40,6 +48,13 @@ const Wrapper = styled(Box)`
     box-shadow: 4px 4px 4px 4px rgb(0 0 9 /0.4);
 `;
 
+const Author = styled(Box)`
+     color: #000000;
+     margin: 5px 0;
+     display : flex;
+     font-size:18;
+     
+`;
 const Heading = styled(Typography)`
   font-size: 32px;
   font-weight: 400;
@@ -61,7 +76,7 @@ const TagDisplay = ({ tags }) => {
 
   return (
     <div style={{ display: "flex", flexWrap: "wrap" }}>
-      {tags.map((tag, index) => (
+      {tags?.map((tag, index) => (
         <div
           key={index}
           style={{
@@ -125,6 +140,58 @@ const DetailView = () => {
     }
   };
 
+// <<<<<<< Dipti
+// }
+
+//     useEffect( ()=> {
+//         const fetchData = async() =>{
+//             let response = await API.getPostById(id);
+//             if(response.isSuccess){
+//                 setPost(response.data);
+//             }
+//         }
+//         fetchData();
+//     }, [])
+    
+//     return (
+//         <Wrapper>
+//         <Cont>
+            
+//             <Image src={url} alt="blog"/>
+            
+//             <Box>
+//                 {
+//                     account.username === post.username && <>
+//                     <Link to={`/update/${post._id}`}> <Edit color='primary' style={{margin: 5, padding:5, border:1  }}/></Link>
+//                     <Delete onClick={()=> deleteBlog()} color='error' style={{margin: 5, padding:5, border:1 }}/>
+//                     </>
+//                 }
+                
+//             </Box>
+            
+            
+//             <Box style={{display:'flex', marginTop:30}}>
+//             <Link to = {`/profile/?username=${post.username}`}>
+//                 <Box style={{display:'flex'}}>
+//                 <Avatar sx={{bgcolor: deepPurple[500]}}></Avatar>
+//             <Author>
+//                 <Typography style={{fontWeight: 400, fontSize:18, marginLeft:30} }> <Box component="span" style={{fontWeight: 400, fontSize:18}}>{post.username}</Box></Typography>
+//                 <Typography  style={{marginLeft:'auto'}}></Typography>
+//             </Author>
+//             </Box>
+//             </Link>
+//             </Box>
+//             <Heading>{post.title}</Heading>
+//             <Description>
+//                 {post.description}
+//             </Description>
+//             <Comments post = {post}/>
+            
+//         </Cont>
+//         </Wrapper>
+//     )
+// }
+// =======
   useEffect(() => {
     const fetchData = async () => {
       let response = await API.getPostById(id);
@@ -134,6 +201,7 @@ const DetailView = () => {
     };
     fetchData();
   }, []);
+// >>>>>>> main
 
   return (
     <Wrapper>
