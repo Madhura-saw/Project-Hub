@@ -20,7 +20,7 @@ const Header = () =>
         <Component>
             <Container>
                 <Link to='/homepage'>HOME</Link>
-                <Link to='/'>BLOGS</Link>
+                <Link to='/'>PROJECTS</Link>
                 <Link to='/events'>EVENTS</Link>
                 <Link to='/myevents'>MY EVENTS</Link>
                 {/* <Link to='/donate'>DONATE</Link> */}

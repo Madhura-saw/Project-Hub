@@ -45,6 +45,7 @@ export const signupUser = async (request, response) => {
 export const loginUser = async (request, response) => {
   //match with database
   let user = await User.findOne({ username: request.body.username });
+  console.log(user)
   if (!user) {
     return response.status(400).json({ msg: "Username did not match" });
   }
