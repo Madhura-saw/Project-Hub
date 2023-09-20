@@ -66,9 +66,9 @@ export const getAllPosts = async (request, response) => {
   let posts;
   try {
     if (category) {
-      posts = await Post.find({ categories: category });
+      posts = await Post.find({ domain: category });
     } else {
-      posts = await Post.find({});
+      posts = await Post.find({}); 
     }
     return response.status(200).json(posts);
   } catch (error) {
