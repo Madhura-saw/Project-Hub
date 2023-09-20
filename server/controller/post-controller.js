@@ -29,7 +29,8 @@ export const createPost = async (req, res) => {
     const newPostData = {
       ...data,
       userid: user._id, // Set 'userid' dynamically to the current user's ID.
-    //   projectid: data._id
+      
+      //   projectid: data._id
     };
 
     // Assign the 'projectid' based on the value of the current _id.
@@ -42,14 +43,23 @@ export const createPost = async (req, res) => {
 
     // Update the post with the 'projectid' included
     await Post.findByIdAndUpdate(post._id, { $set: newPostData });
-    
-    return res.status(201).json({ message: 'Post saved successfully' });
+
+    // insert the projectid in student's profile
+    const student = await Student.findOne({ userId: user._id });
+    if (!student) {
+      return res.status(404).json({
+        message: "Student not found for this user.",
+      });
+    }
+    student.projectids.push(post._id);
+    await student.save();
+
+    return res.status(201).json({ message: "Post saved successfully" });
   } catch (error) {
     console.error("Error adding the post:", error);
     res.status(400).json({ message: "Error adding the post.", error });
   }
-}
-
+};
 
 export const getAllPosts = async (request, response) => {
   let category = request.query.category;
@@ -105,3 +115,13 @@ export const deletePost = async (request, response) => {
     return response.status(500).json({ msg: error.message });
   }
 };
+
+// insert the projectid in student's profile
+// const student = await Student.findOne({ userId: user._id });
+// if (!student) {
+//   return res.status(404).json({
+//     message: "Student not found for this user.",
+//   });
+// }
+// student.projectids.push(newPostData._id);
+// await student.save();

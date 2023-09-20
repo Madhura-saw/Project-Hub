@@ -1,32 +1,5 @@
 import mongoose from "mongoose";
 
-// const postSchema = mongoose.Schema({
-//     title:{
-//         type: String,
-//         required: true
-//     },
-//     description:{
-//         type: String,
-//         required: true
-//     },
-//     username:{
-//         type: String,
-//         required: true
-//     },
-//     picture:{
-//         type: String,
-//         // required: true
-//     },
-//     categories:{
-//         type: String,
-//         required: true
-//     },
-//     createdDate:{
-//         type: Date
-//     },
-
-// });
-
 const projectSchema = new mongoose.Schema({
   projectid: {
     type: mongoose.Schema.Types.ObjectId,
@@ -35,6 +8,10 @@ const projectSchema = new mongoose.Schema({
   userid: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User", // Reference to the user who created the project
+    required: true,
+  },
+  username: {
+    type: String,
     required: true,
   },
   title: {
@@ -49,8 +26,12 @@ const projectSchema = new mongoose.Schema({
   domain: String,
   tags: [String],
   report: String,
-  startdate: Date,
-  enddate: Date,
+  // report: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "PDFFile", // Reference to the GridFS file
+  // },
+  startdate: String,
+  enddate: String,
   rating: Number,
 });
 

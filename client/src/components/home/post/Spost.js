@@ -36,7 +36,7 @@ const Image= styled('img')({
 const Post = ({ post}) =>{
     return(
         <Container>
-            <Image src={post.picture?post.picture:"https://thumbs.dreamstime.com/b/blog-information-website-concept-workplace-background-text-view-above-127465079.jpg"} alt-="blog"/>
+            <Image src={post.picture?post.picture:"https://img.freepik.com/free-vector/project-management-design-concept-symbolizing-analysis-solving-problems-isometric-vector-illustration_1284-77122.jpg"} alt-="blog"/>
             <Text>{post.categories}</Text>
             <Heading>{addElipsis( post.title,20)}</Heading>
             <Text>{post.username}</Text>

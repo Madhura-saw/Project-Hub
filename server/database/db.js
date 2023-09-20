@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 
 export const Connection =async (username,password) =>{
     // const url =   `mongodb+srv://${username}:${password}@cluster0.my5txlu.mongodb.net/test`;

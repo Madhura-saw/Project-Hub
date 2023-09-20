@@ -78,7 +78,7 @@ const Categories = ()=>
         </StyledTable>
         {/* <StyledButton  variant="contained">Create Blog</StyledButton> */}
         <StyleLink to={`/create?category=${category || ''}`} >
-            <StyledButton  variant="contained">Create Blog</StyledButton>
+            <StyledButton  variant="contained">Add Project</StyledButton>
         </StyleLink>
     </>
     )
