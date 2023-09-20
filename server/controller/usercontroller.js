@@ -28,6 +28,7 @@ export const signupUser = async (request, response) => {
       education: request.body.education, // Set education to an initial value if needed
       collegeid: request.body.collegeid, // Set collegeid to an initial value if needed
       collegeName: request.body.collegeName, // Set collegeName to an initial value if needed
+      username: request.body.username,
       userId: newUser._id, // Link the student to the newly created user
       projectids: [], // Initialize projects array as empty
       rating: request.body.rating, // Initialize rating as 0 or an initial value

@@ -19,7 +19,7 @@ import { API } from "../../service/api.js";
 import Comments from "./Comments/Comments.js";
 import { Edit, Delete } from "@mui/icons-material";
 import { DataContext } from "../../context/DataProvider.js";
-import PopupForm from "./Popup.js";
+import PopupForm from "./PopUp.js";
 //import DisplayComment from './Comments/DisplayComment.js';
 
 const Cont = styled(Box)(({ theme }) => ({

@@ -18,6 +18,7 @@ const studentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  username: String,
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User", // Reference to the user associated with the student
