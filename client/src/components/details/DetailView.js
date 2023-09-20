@@ -61,7 +61,7 @@ const TagDisplay = ({ tags }) => {
 
   return (
     <div style={{ display: "flex", flexWrap: "wrap" }}>
-      {tags.map((tag, index) => (
+      {tags?.map((tag, index) => (
         <div
           key={index}
           style={{
