@@ -29,6 +29,7 @@ export const createPost = async (req, res) => {
     const newPostData = {
       ...data,
       userid: user._id, // Set 'userid' dynamically to the current user's ID.
+      
       //   projectid: data._id
     };
 

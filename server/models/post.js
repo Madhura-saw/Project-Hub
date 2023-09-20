@@ -10,6 +10,10 @@ const projectSchema = new mongoose.Schema({
     ref: "User", // Reference to the user who created the project
     required: true,
   },
+  username: {
+    type: String,
+    required: true,
+  },
   title: {
     type: String,
     required: true,
