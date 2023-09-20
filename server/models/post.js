@@ -26,8 +26,8 @@ const projectSchema = new mongoose.Schema({
   //   type: mongoose.Schema.Types.ObjectId,
   //   ref: "PDFFile", // Reference to the GridFS file
   // },
-  startdate: Date,
-  enddate: Date,
+  startdate: String,
+  enddate: String,
   rating: Number,
 });
 

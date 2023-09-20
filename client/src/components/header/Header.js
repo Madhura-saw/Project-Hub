@@ -7,7 +7,7 @@ margin-top:10px
 
 `
 const Container = styled(Toolbar)`
-justify-content: center;
+justify-content: right;
 & > a{
     padding: 30px;
     color:#000000;
@@ -19,10 +19,10 @@ const Header = () =>
     return (
         <Component>
             <Container>
-                <Link to='/homepage'>HOME</Link>
-                <Link to='/'>BLOGS</Link>
-                <Link to='/events'>EVENTS</Link>
-                <Link to='/myevents'>MY EVENTS</Link>
+                {/* <Link to='/homepage'>HOME</Link> */}
+                <Link to='/'>PROJECTS</Link>
+                {/* <Link to='/events'>EVENTS</Link> */}
+                <Link to='/myevents'>MY PROJECTS</Link>
                 {/* <Link to='/donate'>DONATE</Link> */}
                 <Link to='/contact'>ABOUT US </Link>
                 <Link to='/login'>LOGOUT</Link>
