@@ -41,6 +41,10 @@ const projectSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  username: {
+    type: String,
+    
+  },
   description: String,
   domain: String,
   tags: [String],

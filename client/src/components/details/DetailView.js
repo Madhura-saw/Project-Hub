@@ -3,11 +3,12 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
 import {API} from '../../service/api.js';
 //import { Container } from '@mui/system';
+import { blueGrey, deepPurple } from "@mui/material/colors";
 import Comments from './Comments/Comments.js';
 import {Edit, Delete} from '@mui/icons-material';
 import { DataContext } from '../../context/DataProvider.js';
 //import DisplayComment from './Comments/DisplayComment.js';
-
+import Avatar from '@mui/material/Avatar';
 
 const Cont= styled(Box)(({theme})=>({
     margin : '50px 100px',
@@ -39,10 +40,11 @@ const Heading = styled(Typography)`
      word-break: break-word;
 `
 const Author = styled(Box)`
-     color: #878787;
+     color: #000000;
      margin: 5px 0;
      display : flex;
      font-size:18
+     
 `
 const Description = styled(Typography)`
     word-break: break-word;
@@ -98,12 +100,19 @@ const deleteBlog = async () =>{
                 
             </Box>
             
-            <Heading>{post.title}</Heading>
-            <Author>
-                <Typography style={{fontWeight: 400, fontSize:18}}>Author: <Box component="span" style={{fontWeight: 400, fontSize:18}}>{post.username}</Box></Typography>
-                <Typography  style={{marginLeft:'auto'}}>{new Date(post.createdDate).toDateString()}</Typography>
-            </Author>
             
+            <Box style={{display:'flex', marginTop:30}}>
+            <Link to = {`/profile/?username=${post.username}`}>
+                <Box style={{display:'flex'}}>
+                <Avatar sx={{bgcolor: deepPurple[500]}}></Avatar>
+            <Author>
+                <Typography style={{fontWeight: 400, fontSize:18, marginLeft:30} }> <Box component="span" style={{fontWeight: 400, fontSize:18}}>{post.username}</Box></Typography>
+                <Typography  style={{marginLeft:'auto'}}></Typography>
+            </Author>
+            </Box>
+            </Link>
+            </Box>
+            <Heading>{post.title}</Heading>
             <Description>
                 {post.description}
             </Description>

@@ -1,6 +1,10 @@
-import { Button,Table, TableBody, TableCell, TableHead,styled, Paper,TableRow } from "@mui/material"
+import { Button,Table, TableBody, TableCell, TableHead,styled, Paper,TableRow, Typography } from "@mui/material"
 import { categories } from "../../constants/data";
 import { Link,useSearchParams } from "react-router-dom";  
+import Avatar from "@mui/material/Avatar";
+import { DataContext } from "../../context/DataProvider";
+import { useContext } from "react";
+import { blueGrey, deepPurple } from "@mui/material/colors";
 //import { Search } from "@mui/icons-material";
 const StyledTable = styled(Table)`
     border: 1px solid rgba(2,7,2, 8);
@@ -30,7 +34,7 @@ const Stylep = styled(Paper)`
 
 const Categories = ()=>
 {
-
+    const {account} = useContext(DataContext);
     const [searchParams] = useSearchParams();
     const category = searchParams.get('category');
     return (
@@ -41,6 +45,10 @@ const Categories = ()=>
         {/* <StyleLink to={`/create?category=${category || ''}`} > */}
         {/* <StyledButton  variant="contained">Create Blog</StyledButton> /}
         {/* </StyleLink> */}
+        <Link to={`/profile/?username=${account.username}`} >
+        <Avatar className="colorDefault" sx={{bgcolor: deepPurple[500], width:94, height:94}} style={{marginLeft:100, marginTop:30, marginBottom:10}} ></Avatar>
+        </Link>
+        <Typography fontWeight={'bold'} style={{marginLeft:100, marginBottom:50}}>My Profile</Typography>
         <StyledTable>
             <TableHead>
                 <TableRow>
@@ -75,5 +83,4 @@ const Categories = ()=>
     </>
     )
 }
-
 export default Categories;

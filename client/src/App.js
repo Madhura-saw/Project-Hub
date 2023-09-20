@@ -18,6 +18,9 @@ import Register from './components/Event/Reg';
 import { MyEvents } from './components/MyEvents/MyEvents';
 import Details from './components/MyEvents/Details';
 import AboutEvent from './components/Event/AboutEvent';
+import Profile from './components/profile/Profile';
+// import { DataContext } from './context/DataProvider';
+// import { useContext } from 'react';
 const PrivateRoute = ({isAuthenticated, ...props})=>
 {
   //const token = sessionStorage.getItem('accessToken');
@@ -31,6 +34,7 @@ const PrivateRoute = ({isAuthenticated, ...props})=>
 
 function App() {
   const [isAuthenticated, isUserAuthenticated] = useState(false);
+  // const {account} = useContext(DataContext);
   return (
     
     <DataProvider>
@@ -38,12 +42,12 @@ function App() {
       {/* <Header/> */}
       <div style={{marginTop:40}}>
       <Routes>
-      <Route exact path ='/login' element={<Login isUserAuthenticated={isUserAuthenticated}/>}/>
+      <Route exact path ='/login' element= {<Login isUserAuthenticated ={isUserAuthenticated}/>}/>
       
-      <Route path='/homepage' element={<PrivateRoute isAuthenticated={isAuthenticated}/>}>
+      {/* <Route path='/homepage' element={<PrivateRoute isAuthenticated={isAuthenticated}/>}>
       {/* <Route> */}
-      <Route exact path ='/homepage' element={<Homepage/>}/>
-      </Route>
+      {/* <Route exact path ='/homepage' element={<Homepage/>}/>
+      </Route> */} 
       {/* <Route exact path ='/' element={<Home/>}/> */}
       <Route path='/' element={<PrivateRoute isAuthenticated={isAuthenticated}/>}>
       {/* <Route> */}
@@ -98,6 +102,10 @@ function App() {
       <Route exact path ='/aboutevents/:id' element={<AboutEvent/>}/>
       </Route>
 
+      <Route path='/profile/' element={<PrivateRoute isAuthenticated={isAuthenticated}/>}>
+      <Route exact path ='/profile/' element={<Profile/>}/>
+      </Route>
+
       
       
       {/* <Route exact path ='/create' element={<CreatePost/>}/> */}
@@ -113,3 +121,5 @@ function App() {
 }
 
 export default App;
+
+

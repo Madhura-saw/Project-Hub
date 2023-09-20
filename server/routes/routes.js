@@ -7,6 +7,7 @@ import { createEvent, getAllEvents,getEvent, searchEvents } from '../controller/
 import { register, getReg } from '../controller/reg-controller.js';
 import upload from '../utils/upload.js';
 import { authenticateToken } from '../controller/jwt-controller.js';
+import { getAllProjects, getProfile } from '../controller/profile-controller.js';
 //import Posts from '../../client/src/components/home/post/Posts.js';
 const router = express.Router();
 
@@ -21,12 +22,14 @@ router.put('/update/:id', authenticateToken,updatePost);
 router.delete('/delete/:id', authenticateToken,deletePost);
 router.post('/comment/new', authenticateToken, newComment);
 router.get('/comments/:id', authenticateToken,getComments);
-router.delete('/comment/delete/:id', authenticateToken,deleteComment);
+router.delete('/comment/delete/:id', authenticateToken,deleteComment); 
 router.post('/createEvent', authenticateToken, createEvent);
 router.get('/events',authenticateToken,getAllEvents);
 router.post('/register/new', authenticateToken, register);
 router.get('/eventdetails/:id', authenticateToken,getEvent);
 router.get('/eventdetail/:id', authenticateToken,getReg);
+router.get('/profile', authenticateToken,getProfile);
+router.get('/projects', authenticateToken,getAllProjects);
 //router.get('/events/:location',authenticateToken ,searchEvents);
-export default router;
+export default router; 
 

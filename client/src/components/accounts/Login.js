@@ -94,7 +94,7 @@ const loginUser = async ()=>{
         setAccount({username:response.data.username, email: response.data.email})
         isUserAuthenticated(true);
         setLogin(loginvalues);
-        navigate('/homepage');
+        navigate('/');
         
     }
     else{
