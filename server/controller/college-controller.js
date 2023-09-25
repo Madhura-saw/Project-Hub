@@ -1,5 +1,5 @@
-import fs from "fs"; 
-import { parse } from 'csv-parse';
+// import fs from "fs"; 
+// import { parse } from 'csv-parse';
 import College from "../models/college.js";
 
 export const getCollegesbyState = async (request, response) =>{
