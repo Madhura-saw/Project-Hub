@@ -3,6 +3,7 @@ import bcrypt from "bcrypt";
 import Token from "../models/token.js";
 import User from "../models/user.js";
 import Student from "../models/student.js";
+import College from "../models/college.js";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 
@@ -12,6 +13,10 @@ export const signupUser = async (request, response) => {
   try {
     // const salt = await bcrypt.genSalt();
     const hashedPassword = await bcrypt.hash(request.body.password, 10);
+    const college = await College.findOne({collegeName: request.body.collegeName}) ;
+    if(college === null){
+      return response.status(500).json({ msg: "college not found" });
+    }
 
     //create new user
     const user = {
@@ -26,12 +31,12 @@ export const signupUser = async (request, response) => {
     const studentData = {
       name: request.body.name, // You can set the student's name as the username
       education: request.body.education, // Set education to an initial value if needed
-      collegeid: request.body.collegeid, // Set collegeid to an initial value if needed
+      collegeid: college._id, // Set collegeid to an initial value if needed
       collegeName: request.body.collegeName, // Set collegeName to an initial value if needed
       username: request.body.username,
       userId: newUser._id, // Link the student to the newly created user
       projectids: [], // Initialize projects array as empty
-      rating: request.body.rating, // Initialize rating as 0 or an initial value
+      rating: 0, // Initialize rating as 0 or an initial value
     };
     const newStudent = new Student(studentData);
     await newStudent.save();
