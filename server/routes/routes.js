@@ -8,6 +8,7 @@ import { register, getReg } from '../controller/reg-controller.js';
 import upload from '../utils/upload.js';
 import { authenticateToken } from '../controller/jwt-controller.js';
 import { getAllProjects, getProfile } from '../controller/profile-controller.js';
+import { getCollegesbyState } from '../controller/colleges-controller.js';
 //import Posts from '../../client/src/components/home/post/Posts.js';
 const router = express.Router();
 
@@ -30,6 +31,7 @@ router.get('/eventdetails/:id', authenticateToken,getEvent);
 router.get('/eventdetail/:id', authenticateToken,getReg);
 router.get('/profile', authenticateToken,getProfile);
 router.get('/projects', authenticateToken,getAllProjects);
+router.get('/colleges/:state', getCollegesbyState);
 //router.get('/events/:location',authenticateToken ,searchEvents);
 export default router; 
 
