@@ -16,7 +16,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { API } from "../../service/api.js";
 import { blueGrey, deepPurple } from "@mui/material/colors";
-import Avatar from '@mui/material/Avatar';
+// import Avatar from '@mui/material/Avatar';
 import PopupForm from "./PopUp.js";
 //import { Container } from '@mui/system';
 // import Comments from './Comments/Comments.js';

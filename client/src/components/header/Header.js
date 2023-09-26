@@ -23,19 +23,19 @@ const Header = () =>
     return (
         <Component>
             <Container>
-// <<<<<<< Dipti
-//                 <Link to='/homepage'>HOME</Link>
+{/* // <<<<<<< Dipti */}
+{/* //                 <Link to='/homepage'>HOME</Link>
 //                 <Link to='/'>PROJECTS</Link>
 //                 <Link to='/events'>EVENTS</Link>
 //                 <Link to='/myevents'>MY EVENTS</Link>
 //                 <Link to='/donate'>DONATE</Link>
-// =======
+// ======= */}
                 {/* <Link to='/homepage'>HOME</Link> */}
                 <Link to='/'>PROJECTS</Link>
                 {/* <Link to='/events'>EVENTS</Link> */}
                 <Link to='/myevents'>MY PROJECTS</Link>
                 {/* <Link to='/donate'>DONATE</Link> */}
-// >>>>>>> main
+{/* // >>>>>>> main */}
                 <Link to='/contact'>ABOUT US </Link>
                 {/* <Link to='/profile' >My Profile </Link> */}
                 <Link to='/login'>LOGOUT</Link>
